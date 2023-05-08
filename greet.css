@@ -1,0 +1,25 @@
+
+.intro{
+    text-align: center;
+    font-size: xx-large;
+}
+
+.greetBtn{
+    font-size: x-large;
+}
+.counter{
+    padding: 1em;
+    margin: 1em;
+    border-radius: 2em;
+    border: 2px solid crimson;
+    width: 20%;
+   text-align: center !important; 
+}
+
+.container {
+    text-align: center;
+    font-size: large;
+}
+body{
+    background-color: rgb(235, 191, 191);
+}
