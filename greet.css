@@ -1,25 +1,27 @@
-
-.intro{
+.intro {
     text-align: center;
     font-size: xx-large;
-}
-
-.greetBtn{
+  }
+  
+  .greetBtn {
     font-size: x-large;
-}
-.counter{
-    padding: 1em;
-    margin: 1em;
-    border-radius: 2em;
-    border: 2px solid crimson;
-    width: 20%;
-   text-align: center !important; 
-}
-
-.container {
+  }
+  .counter {
+      border-radius: 110%;
+    margin: auto;
+    width: 7%;
+    border: 3px solid rgb(51, 12, 38);
+    padding: 10px;
+  }
+  
+  .container {
     text-align: center;
     font-size: large;
-}
-body{
+  }
+  body {
     background-color: rgb(235, 191, 191);
-}
+  }
+  .radio {
+    padding-top: 1em;
+  }
+  
