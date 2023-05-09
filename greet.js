@@ -5,10 +5,19 @@ var displayElement = document.querySelector(".name");
 var resetBtnElement = document.querySelector(".resetBtn");
 var counterElement = document.querySelector(".counter");
 
-var greeter = greetings();
+var names = [];
+
+if (localStorage["names"]) {
+  names = JSON.parse(localStorage["names"]);
+}
+
+var greeter = greetings(names);
 counterElement.innerHTML = greeter.countingNames();
+
 greetBtnElement.addEventListener("click", function () {
   names = nameElement.value;
+  //  window.localStorage.setItem('names')
+  // localStorage.getItem('names')
   var checkedRadiobtnElement = document.querySelector(
     'input[name="radiobtn"]:checked'
   );
@@ -19,14 +28,8 @@ greetBtnElement.addEventListener("click", function () {
     counterElement.innerHTML = greeter.countingNames();
   }
 
-  //  displayElement.innerHTML = greeter.greetXhosa(names);
-  // displayElement.innerHTML = greeter.greetFrench(names);
+  localStorage["names"] = JSON.stringify(greeter.listOfNamesGreeted());
 });
-
-//  radiobtn(){
-//     var checkedRadiobtnElement = document.querySelector('input[name="radiobtn"]:checked');
-//     if (checkedRadiobtnElement){
-//         var languages = checkedRadioBtn.value
-
-//     }
-// }
+resetBtnElement.addEventListener("click",function(){
+  resetBtnElement.innerHTML = greeter.reset()
+})
