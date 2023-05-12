@@ -2,8 +2,10 @@ function greetings(nameList) {
   var greetedNames = nameList || [];
 
   function makeGreet(names, languages) {
+    
+
     namesGreeted(names);
-   
+
     if (languages === "english") {
       return "Hello " + names;
     }
@@ -17,28 +19,29 @@ function greetings(nameList) {
   function namesGreeted(name) {
     if (greetedNames.includes(name) === false) {
       greetedNames.push(name);
-     
     }
-    console.log(greetedNames)
+    console.log(greetedNames);
   }
 
   function countingNames() {
     return greetedNames.length;
   }
   function reset() {
-    localStorage.clear()
-    location.reload()
+    localStorage.clear();
+    location.reload();
   }
 
-  function listOfNamesGreeted(){
+  function listOfNamesGreeted() {
     return greetedNames;
   }
+ 
 
   return {
     makeGreet,
     countingNames,
     namesGreeted,
     listOfNamesGreeted,
-    reset
+    reset,
+    
   };
 }
