@@ -34,7 +34,9 @@ function greetings(nameList) {
   function listOfNamesGreeted() {
     return greetedNames;
   }
- 
+  function capitalizeFirstLetter(allNames) {
+    return allNames.charAt(0).toUpperCase() + allNames.slice(1);
+  }
 
   return {
     makeGreet,
@@ -42,6 +44,7 @@ function greetings(nameList) {
     namesGreeted,
     listOfNamesGreeted,
     reset,
+    capitalizeFirstLetter
     
   };
 }

@@ -7,16 +7,21 @@ var counterElement = document.querySelector(".counter");
 var textNameElement = document.querySelector(".tetxName");
 var nameErrorElement = document.querySelector(".nameError");
 var languageErrorElement = document.querySelector(".languageError");
+var resetErrorElement = document.querySelector(".resetError");
 var names = [];
 var nameRegex = /^[a-zA-Z\s]+$/;
+
+
 if (localStorage["names"]) {
-  names = JSON.parse(localStorage["names"]);
+    names = JSON.parse(localStorage["names"]);
 }
 
 var greeter = greetings(names);
+
 counterElement.innerHTML = greeter.countingNames();
 
 greetBtnElement.addEventListener("click", function () {
+  
   names = nameElement.value;
 
   var checkedRadiobtnElement = document.querySelector(
@@ -56,7 +61,12 @@ greetBtnElement.addEventListener("click", function () {
   }
   localStorage["names"] = JSON.stringify(greeter.listOfNamesGreeted());
 });
+
 resetBtnElement.addEventListener("click", function () {
+  if (resetBtnElement) {
+  } else {
+    resetErrorElement.innerHTML = "your reset was successful!";
+  }
   resetBtnElement.innerHTML = greeter.reset();
 });
 
