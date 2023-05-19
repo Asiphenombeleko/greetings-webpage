@@ -11,9 +11,8 @@ var resetErrorElement = document.querySelector(".resetError");
 var names = [];
 var nameRegex = /^[a-zA-Z\s]+$/;
 
-
 if (localStorage["names"]) {
-    names = JSON.parse(localStorage["names"]);
+  names = JSON.parse(localStorage["names"]);
 }
 
 var greeter = greetings(names);
@@ -21,52 +20,43 @@ var greeter = greetings(names);
 counterElement.innerHTML = greeter.countingNames();
 
 greetBtnElement.addEventListener("click", function () {
-  
   names = nameElement.value;
 
   var checkedRadiobtnElement = document.querySelector(
     'input[name="radiobtn"]:checked'
   );
+ 
 
-  if (checkedRadiobtnElement) {
-    var languages = checkedRadiobtnElement.value;
+  var languages = checkedRadiobtnElement ? checkedRadiobtnElement.value : "";
+
+  setTimeout(function () {
+    languageErrorElement.innerHTML = "";
+   }, 2000);
+  if (greeter.errorHandling(names, languages)) {
+    nameErrorElement.innerHTML = greeter.errorHandling(names, languages);
   } else {
-    languageErrorElement.innerHTML = "Please select the language!";
+    if (nameRegex.test(nameElement.value)) {
+      displayElement.innerHTML = greeter.makeGreet(names, languages);
+      counterElement.innerHTML = greeter.countingNames();
 
-    setTimeout(function () {
-      languageErrorElement.innerHTML = "";
-    }, 2000);
-  }
-  if (nameElement.value != "") {
-    if (languages) {
-      if (nameRegex.test(nameElement.value)) {
-        displayElement.innerHTML = greeter.makeGreet(names, languages);
-        counterElement.innerHTML = greeter.countingNames();
-        setTimeout(function () {
-          displayElement.innerHTML = "";
-        }, 2000);
-      } else {
-        nameErrorElement.innerHTML = "please enter correct details!";
-        setTimeout(function () {
-          nameErrorElement.innerHTML = "";
-        }, 2000);
-      }
+      checkedRadiobtnElement.checked = "";
+      setTimeout(function () {
+        displayElement.innerHTML = "";
+      }, 2000);
     }
-  } else {
-    nameErrorElement.innerHTML = "Please enter your name!";
-
     setTimeout(function () {
       nameErrorElement.innerHTML = "";
     }, 2000);
+    nameElement.value ="";
+    localStorage["names"] = JSON.stringify(greeter.listOfNamesGreeted());
   }
-  localStorage["names"] = JSON.stringify(greeter.listOfNamesGreeted());
+  setTimeout(function () {
+    nameErrorElement.innerHTML = "";
+  }, 2000);
 });
 
 resetBtnElement.addEventListener("click", function () {
   if (resetBtnElement) {
-  } else {
-    resetErrorElement.innerHTML = "your reset was successful!";
   }
-  resetBtnElement.innerHTML = greeter.reset();
+  greeter.reset();
 });
-
