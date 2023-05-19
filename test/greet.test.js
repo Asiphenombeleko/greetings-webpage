@@ -12,6 +12,9 @@ describe("My Greet function", function () {
     var greeter = greetings();
     assert.equal("Salut Asisipho", greeter.makeGreet("asisipho", "french"));
   });
+
+  describe("The listOfNamesGreeted function",function(){
+
   it("should return the array with names of people greeted", function () {
     var greeter = greetings();
     greeter.makeGreet("yamisa", "english");
@@ -20,11 +23,25 @@ describe("My Greet function", function () {
 
     greeter.makeGreet("Saffah", "xhosa");
     greeter.makeGreet("Thembakazi", "xhosa");
-    assert.deepEqual(
-      ["Yamisa", "Asisipho", "Saffah", "Thembakazi"],
-      greeter.listOfNamesGreeted()
-    );
+    assert.deepEqual(["Yamisa", "Asisipho", "Saffah", "Thembakazi"],greeter.listOfNamesGreeted());
+    
+  })
+
+  it("should return the array with names of people greeted", function () {
+    var greeter = greetings();
+    greeter.makeGreet("Olo", "english");
+    greeter.makeGreet("Amile", "english");
+    assert.deepEqual(["Olo", "Amile"], greeter.listOfNamesGreeted());
+
+    greeter.makeGreet("Kwane", "xhosa");
+    greeter.makeGreet("Alu", "xhosa");
+    assert.deepEqual(["Olo", "Amile", "Kwane", "Alu"],greeter.listOfNamesGreeted());
+    
+  })
   });
+  describe("The CountingNames Function",function(){
+
+  
   it("should return the length of the greeted names", function () {
     var greeter = greetings();
     greeter.makeGreet("yamisa", "english");
@@ -36,7 +53,17 @@ describe("My Greet function", function () {
     greeter.makeGreet("Lwandle", "english");
     assert.deepEqual(5, greeter.countingNames());
   });
- 
+  it("should return the length of the greeted names", function () {
+    var greeter = greetings();
+    greeter.makeGreet("Akhona", "english");
+    greeter.makeGreet("Saffah", "english");
+    greeter.makeGreet("Mthunzi", "english");
+    greeter.makeGreet("Katleho", "english");
+    assert.deepEqual(4, greeter.countingNames());
+
+  });
+  
+})
 });
 describe("My ErrorHandling function", function(){
     it("should return 'Please enter name & select language'when it is not selected",function(){
