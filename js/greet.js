@@ -39,7 +39,8 @@ greetBtnElement.addEventListener("click", function () {
       displayElement.innerHTML = greeter.makeGreet(names, languages);
       counterElement.innerHTML = greeter.countingNames();
 
-      checkedRadiobtnElement.checked = "";
+      
+
       setTimeout(function () {
         displayElement.innerHTML = "";
       }, 2000);
@@ -48,6 +49,9 @@ greetBtnElement.addEventListener("click", function () {
       nameErrorElement.innerHTML = "";
     }, 2000);
     nameElement.value ="";
+
+    checkedRadiobtnElement.checked = "";
+    
     localStorage["names"] = JSON.stringify(greeter.listOfNamesGreeted());
   }
   setTimeout(function () {
