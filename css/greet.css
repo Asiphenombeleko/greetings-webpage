@@ -35,10 +35,6 @@ body{
   position: relative;
   
 }
-.img{
-  background-image: image-set();
-}
-
 .radio {
   cursor: pointer;
   padding-top: 0.5em;
