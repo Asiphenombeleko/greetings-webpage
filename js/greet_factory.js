@@ -58,6 +58,7 @@ function greetings(nameList) {
       message = "Please enter your name!";
       return message;
     }
+    
     if (nameRegex.test(names) === false) {
       message = "please enter correct details!";
       return message;

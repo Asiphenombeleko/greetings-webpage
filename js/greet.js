@@ -61,6 +61,10 @@ greetBtnElement.addEventListener("click", function () {
 
 resetBtnElement.addEventListener("click", function () {
   if (resetBtnElement) {
+    resetErrorElement.innerHTML = "Reset Successful"
   }
+  setTimeout(function () {
+    resetErrorElement.innerHTML = "";
+  }, 2000);
   greeter.reset();
 });
