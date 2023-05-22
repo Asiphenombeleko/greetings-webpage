@@ -30,7 +30,7 @@ body{
   width: 40%;
   padding-top: 8em;
   text-align: center;
-  background-image: url(/cover.jpg);
+  background-image: url(./cover.jpg);
   background-size: cover;
   position: relative;
   
